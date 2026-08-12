@@ -264,14 +264,6 @@ All sensors, controller, cloud platform, dashboard, relay, and pump are tested t
 | Wet soil condition   | Pump turns OFF               | PASS   |
 | Complete automation  | System operates correctly    | PASS   |
 
-## 12. Smart Home Automation Circuit
-
-### Smart_Home_Automation_Circuit
-
-The complete ESP32-based smart home circuit is shown below.
-
-![Smart Home Automation Circuit](circuit/smart_home_circuit.png)
-
 ---
 
 ## 13. Project Screenshots
