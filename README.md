@@ -158,24 +158,6 @@ ELSE
 
 The exact threshold depends on the sensor used and should be calibrated during testing.
 
-## IoT Dashboard
-
-The IoT dashboard provides real-time monitoring of the agricultural system.
-
-The dashboard can display:
-
-* Soil Moisture
-* Temperature
-* Humidity
-* Irrigation / Relay Status
-* Water Pump Status
-
-### Dashboard Screenshot
-
-![Smart Agriculture Dashboard](dashboard/dashboard_screenshot.png)
-
-> Add the actual dashboard screenshot to the `dashboard` folder and update the filename if necessary.
-
 ## Circuit Diagram
 
 The complete smart agriculture circuit consists of the microcontroller, soil moisture sensor, temperature/humidity sensor, relay module, and water pump.
@@ -282,23 +264,74 @@ All sensors, controller, cloud platform, dashboard, relay, and pump are tested t
 | Wet soil condition   | Pump turns OFF               | PASS   |
 | Complete automation  | System operates correctly    | PASS   |
 
-## Screenshots
+## 12. Smart Home Automation Circuit
 
-### Sensor Readings
+### Smart_Home_Automation_Circuit
 
-![Sensor Readings](screenshots/sensor_readings.png)
+The complete ESP32-based smart home circuit is shown below.
 
-### Irrigation ON
+![Smart Home Automation Circuit](circuit/smart_home_circuit.png)
 
-![Irrigation ON](screenshots/irrigation_on.png)
+---
 
-### Irrigation OFF
+## 13. Project Screenshots
 
-![Irrigation OFF](screenshots/irrigation_off.png)
+### Serial Monitor
 
-### Dashboard
+The Serial Monitor displays the temperature, humidity, light intensity, motion status, relay status, and light status.
 
-![Dashboard](dashboard/dashboard_screenshot.png)
+![Serial Monitor](screenshots/serial_monitor.png)
+
+### Soil Moisture
+
+The soil-moisture condition is monitored and used for automation testing.
+
+![Soil Moisture](screenshots/soil_moisture.png)
+
+### Relay – Light ON
+
+The relay is activated when the automation condition is satisfied.
+
+![Relay Light ON](screenshots/relay_lighton.png)
+
+### Relay – Light OFF
+
+The relay is deactivated when the automation condition is not satisfied.
+
+![Relay Light OFF](screenshots/relay_lightoff.png)
+
+---
+
+# Smart Home Automation Dashboard
+
+The Smart Home Automation system uses a **Blynk IoT dashboard** to monitor sensor readings and display the status of the automated lighting system.
+
+## Dashboard – Light ON
+
+The dashboard displays the system status when the motion and low-light conditions are satisfied and the automated light is ON.
+
+![Blynk Dashboard - Light ON](screenshots/blynk_dashboard_lighton.png)
+
+## Dashboard – Light OFF
+
+The dashboard displays the system status when the automated light is OFF.
+
+![Blynk Dashboard - Light OFF](screenshots/blynk_dashboard_lightoff.png)
+
+---
+
+## Dashboard Parameters
+
+| Parameter | Virtual Pin | Description |
+|---|---|---|
+| Temperature | V0 | Displays temperature measured by the DHT22 sensor |
+| Humidity | V1 | Displays humidity measured by the DHT22 sensor |
+| Light Value | V2 | Displays the LDR light intensity value |
+| Motion Status | V3 | Displays whether motion is detected by the PIR sensor |
+| Relay Status | V4 | Displays the current relay state |
+| Light Status | V5 | Displays whether the automated light is ON or OFF |
+
+---
 
 ## Project Folder Structure
 
