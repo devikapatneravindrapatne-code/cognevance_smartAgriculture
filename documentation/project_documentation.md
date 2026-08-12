@@ -1,127 +1,84 @@
-# Smart Agriculture System
-## Testing Report
-
----
+# IoT-Based Smart Agriculture Monitoring System
 
 ## 1. Introduction
 
-The Smart Agriculture System was developed using ESP32 and tested using the Wokwi simulation environment.
+The IoT-Based Smart Agriculture Monitoring System is designed to monitor important soil and environmental parameters using IoT sensors and an embedded controller.
 
-The purpose of testing was to verify the correct operation of the soil moisture monitoring system, sensor readings, LED indication, relay control, and Blynk IoT dashboard.
+The system measures soil moisture, temperature, and humidity and transmits the collected data to an IoT cloud platform. A real-time dashboard is used to monitor the sensor readings remotely.
 
-The system monitors soil moisture and uses the sensor readings to determine the condition of the soil. Based on the defined threshold, the system controls the output automatically.
-
-Blynk IoT is used to display real-time sensor readings and system status.
+The system also implements automatic irrigation control based on soil moisture conditions.
 
 ---
 
-## 2. Testing Objectives
+## 2. Problem Statement
 
-The main objectives of testing were:
+Traditional agricultural irrigation often depends on manual observation of soil conditions. This can result in unnecessary water usage or insufficient irrigation.
 
-- To verify ESP32 operation.
-- To verify soil moisture sensor readings.
-- To verify analog sensor input.
-- To verify soil moisture threshold detection.
-- To verify LED operation.
-- To verify relay operation.
-- To verify automatic control logic.
-- To verify Serial Monitor output.
-- To verify Blynk IoT connectivity.
-- To verify real-time dashboard readings.
-- To verify the complete system through Wokwi simulation.
+The proposed system uses sensors and IoT technology to continuously monitor soil and environmental conditions and automatically control irrigation based on the detected soil moisture level.
 
 ---
 
-## 3. Testing Environment
+## 3. Objectives
 
-| Parameter | Details |
-|---|---|
-| Microcontroller | ESP32 DevKit |
-| Simulation Platform | Wokwi |
-| Soil Moisture Sensor | Potentiometer / Soil Moisture Simulation |
-| Actuator | Relay Module |
-| Indicator | LED |
-| IoT Platform | Blynk IoT |
-| Programming | Embedded C/C++ |
+The main objectives of the system are:
 
----
-
-## 4. Component Testing
-
-### 4.1 ESP32 Testing
-
-The ESP32 was tested to verify that it initializes correctly and executes the programmed control logic.
-
-**Expected Result:**
-
-The ESP32 should start successfully and continuously process the sensor readings.
-
-**Result:**
-
-PASS
+- Monitor soil moisture in real time.
+- Monitor temperature and humidity.
+- Interface multiple sensors with an ESP32/ESP8266.
+- Transmit sensor data to an IoT cloud platform.
+- Display sensor readings using a real-time dashboard.
+- Implement automatic irrigation control.
+- Analyze sensor readings.
+- Test communication between the embedded device and cloud platform.
+- Test the complete automation workflow.
+- Document the system architecture and testing results.
 
 ---
 
-### 4.2 Soil Moisture Sensor Testing
+## 4. System Architecture
 
-The soil moisture sensor was tested by changing the simulated sensor value.
+The system consists of sensors, an ESP32/ESP8266 controller, Wi-Fi communication, an IoT cloud platform, dashboard, relay, and irrigation pump.
 
-The sensor provides an analog value to the ESP32.
-
-**Expected Result:**
-
-The ESP32 should correctly read the changing soil moisture value.
-
-**Result:**
-
-PASS
-
-![Soil Moisture](../screenshots/soil_moisture.png)
-
----
-
-### 4.3 LED Testing
-
-The LED was tested as a visual indication of the system condition.
-
-**Expected Result:**
-
-The LED should change according to the programmed soil moisture condition.
-
-**Result:**
-
-PASS
-
----
-
-### 4.4 Relay Testing
-
-The relay was tested to verify automatic control based on soil moisture conditions.
-
-**Expected Result:**
-
-The relay should switch according to the defined soil moisture threshold.
-
-**Result:**
-
-PASS
-
----
-
-## 5. Soil Moisture Testing
-
-The soil moisture value was varied in the Wokwi simulation to test different soil conditions.
-
-The system compares the sensor value with the programmed threshold.
-
-Example:
+### Architecture Flow
 
 ```text
-Soil Moisture Condition
-          ↓
-Read Sensor Value
-          ↓
-Compare with Threshold
-          ↓
-Automatic Decision
+┌───────────────────────┐
+│    Soil Moisture      │
+│       Sensor          │
+└───────────┬───────────┘
+            │
+            │
+┌───────────▼───────────┐
+│ Temperature & Humidity│
+│       Sensor          │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│     ESP32/ESP8266     │
+│   Microcontroller     │
+└───────────┬───────────┘
+            │
+            │ Wi-Fi
+            ▼
+┌───────────────────────┐
+│     IoT Cloud         │
+│      Platform         │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│   Real-Time Dashboard │
+└───────────────────────┘
+
+            │
+            │ Automation Logic
+            ▼
+┌───────────────────────┐
+│     Relay Module      │
+└───────────┬───────────┘
+            │
+            ▼
+┌───────────────────────┐
+│     Water Pump        │
+└───────────────────────┘
