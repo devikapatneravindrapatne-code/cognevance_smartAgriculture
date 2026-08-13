@@ -64,52 +64,6 @@ The main objectives of this project are:
 * Serial Monitor
 * Wi-Fi Communication
 
-## System Architecture
-
-```text
-          ┌─────────────────────┐
-          │   Soil Moisture     │
-          │      Sensor         │
-          └──────────┬──────────┘
-                     │
-          ┌──────────▼──────────┐
-          │ Temperature &       │
-          │ Humidity Sensors    │
-          └──────────┬──────────┘
-                     │
-                     ▼
-             ┌───────────────┐
-             │ ESP32/ESP8266  │
-             │  Microcontroller│
-             └───────┬───────┘
-                     │
-             Wi-Fi / Internet
-                     │
-                     ▼
-             ┌───────────────┐
-             │  IoT Cloud     │
-             │    Platform    │
-             └───────┬───────┘
-                     │
-                     ▼
-             ┌───────────────┐
-             │   Dashboard    │
-             │ Real-Time Data │
-             └───────────────┘
-
-                     │
-                     │ Automation Logic
-                     ▼
-             ┌───────────────┐
-             │ Relay Module   │
-             └───────┬───────┘
-                     │
-                     ▼
-             ┌───────────────┐
-             │  Water Pump    │
-             └───────────────┘
-```
-
 ## Working Principle
 
 1. The soil moisture sensor measures the moisture level of the soil.
@@ -125,68 +79,11 @@ The main objectives of this project are:
 11. When the soil moisture reaches the required level, the pump is turned OFF.
 12. The sensor values and irrigation status are continuously monitored.
 
-## Irrigation Automation Logic
-
-```text
-        Read Soil Moisture
-                │
-                ▼
-       Compare with Threshold
-                │
-        ┌───────┴────────┐
-        │                │
-   Soil is Dry      Soil is Wet
-        │                │
-        ▼                ▼
-   Relay ON          Relay OFF
-        │                │
-        ▼                ▼
-   Pump ON           Pump OFF
-```
-
-### Example Logic
-
-```text
-IF soil moisture < threshold
-       → Relay ON
-       → Water Pump ON
-
-ELSE
-       → Relay OFF
-       → Water Pump OFF
-```
-
-The exact threshold depends on the sensor used and should be calibrated during testing.
-
 ## Circuit Diagram
 
 The complete smart agriculture circuit consists of the microcontroller, soil moisture sensor, temperature/humidity sensor, relay module, and water pump.
 
 ![Smart Agriculture Circuit](circuit/smart_agriculture_circuit.png)
-
-## Sensor Monitoring
-
-The system continuously collects sensor readings and displays them through the Serial Monitor and IoT dashboard.
-
-Example:
-
-```text
-Soil Moisture: 42%
-Temperature: 25.4 °C
-Humidity: 61.0 %
-Irrigation: OFF
-Pump: OFF
-```
-
-When the soil becomes dry:
-
-```text
-Soil Moisture: 18%
-Temperature: 26.1 °C
-Humidity: 57.0 %
-Irrigation: ON
-Pump: ON
-```
 
 ## Data Analysis
 
@@ -204,52 +101,6 @@ The following parameters can be analyzed:
 
 The collected data can be represented using tables or graphs to identify changes in soil and environmental conditions.
 
-## Communication
-
-The ESP32/ESP8266 communicates with the IoT cloud platform using Wi-Fi.
-
-```text
-Sensors
-   ↓
-ESP32 / ESP8266
-   ↓
-Wi-Fi
-   ↓
-IoT Cloud Platform
-   ↓
-Dashboard
-```
-
-The communication system is tested by verifying whether sensor readings from the microcontroller are correctly received and displayed on the IoT dashboard.
-
-## Testing
-
-The system is tested in multiple stages:
-
-### 1. Sensor Testing
-
-* Verify soil moisture sensor readings.
-* Verify temperature readings.
-* Verify humidity readings.
-
-### 2. Communication Testing
-
-* Verify ESP32/ESP8266 Wi-Fi connection.
-* Verify data transmission to the cloud platform.
-* Verify dashboard updates.
-
-### 3. Automation Testing
-
-* Simulate dry soil conditions.
-* Check whether the relay turns ON.
-* Verify that the water pump turns ON.
-* Increase soil moisture.
-* Verify that the relay and pump turn OFF.
-
-### 4. System Integration Testing
-
-All sensors, controller, cloud platform, dashboard, relay, and pump are tested together to verify complete system operation.
-
 ## Testing Results
 
 | Test Case            | Expected Result              | Status |
@@ -263,36 +114,6 @@ All sensors, controller, cloud platform, dashboard, relay, and pump are tested t
 | Dry soil condition   | Pump turns ON                | PASS   |
 | Wet soil condition   | Pump turns OFF               | PASS   |
 | Complete automation  | System operates correctly    | PASS   |
-
----
-
-## 13. Project Screenshots
-
-### Serial Monitor
-
-The Serial Monitor displays the temperature, humidity, light intensity, motion status, relay status, and light status.
-
-![Serial Monitor](screenshots/serial_monitor.png)
-
-### Soil Moisture
-
-The soil-moisture condition is monitored and used for automation testing.
-
-![Soil Moisture](screenshots/soil_moisture.png)
-
-### Relay – Light ON
-
-The relay is activated when the automation condition is satisfied.
-
-![Relay Light ON](screenshots/relay_lighton.png)
-
-### Relay – Light OFF
-
-The relay is deactivated when the automation condition is not satisfied.
-
-![Relay Light OFF](screenshots/relay_lightoff.png)
-
----
 
 # Smart Home Automation Dashboard
 
@@ -352,51 +173,6 @@ Cognevance_IoT_SmartAgriculture/
 └── documentation/
     └── project_documentation.pdf
 ```
-
-## Expected Outputs
-
-The completed system should provide:
-
-* Real-time soil moisture monitoring
-* Real-time temperature monitoring
-* Real-time humidity monitoring
-* IoT cloud data transmission
-* Real-time dashboard visualization
-* Automatic irrigation control
-* Sensor data analysis
-* Testing and validation results
-
-## Advantages
-
-* Reduces manual monitoring
-* Helps optimize water usage
-* Provides real-time agricultural data
-* Enables remote monitoring
-* Supports automatic irrigation
-* Provides a scalable IoT-based solution
-
-## Limitations
-
-* Sensor accuracy may vary depending on calibration.
-* Wi-Fi connectivity is required for cloud monitoring.
-* Soil moisture thresholds need to be calibrated for different soil and crop conditions.
-* The system depends on reliable power for the controller and irrigation pump.
-
-## Future Scope
-
-The system can be further improved by adding:
-
-* Multiple soil moisture sensors
-* Multiple irrigation zones
-* Weather API integration
-* Rain detection
-* Water-level monitoring
-* Mobile notifications
-* Data logging and historical analytics
-* Machine-learning-based irrigation prediction
-* Solar-powered operation
-* Crop-specific irrigation recommendations
-
 ## Conclusion
 
 The IoT-Based Smart Agriculture Monitoring System demonstrates how embedded systems and IoT technologies can be used for real-time agricultural monitoring and automated irrigation.
