@@ -174,7 +174,7 @@ Cognevance_IoT_SmartAgriculture/
 │   └── testing_report.md
 │
 └── documentation/
-    └── project_documentation.pdf
+    └── smart_agriculture.pdf
 ```
 ## Conclusion
 
