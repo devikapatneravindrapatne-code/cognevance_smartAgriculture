@@ -162,13 +162,13 @@ Cognevance_IoT_SmartAgriculture/
 ├── circuit/
 │   └── smart_agriculture_circuit.png
 │
-├── dashboard/
-│   └── dashboard_screenshot.png
-│
 ├── screenshots/
-│   ├── sensor_readings.png
-│   ├── irrigation_on.png
-│   └── irrigation_off.png
+│   ├── blynk_dashboard_lightoff.png
+|   ├── blynk_dashboard_lighton.png
+│   ├── relay_lighton.png
+|   ├── relay_lightoff.png
+|   ├── serial_monitor.png
+│   └── soil_moisture.png
 │
 ├── testing/
 │   └── testing_report.md
