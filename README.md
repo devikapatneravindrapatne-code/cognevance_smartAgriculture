@@ -115,6 +115,9 @@ The collected data can be represented using tables or graphs to identify changes
 | Wet soil condition   | Pump turns OFF               | PASS   |
 | Complete automation  | System operates correctly    | PASS   |
 
+#Wokwi Project
+(https://wokwi.com/projects/472128409662077953)
+
 # Smart Home Automation Dashboard
 
 The Smart Home Automation system uses a **Blynk IoT dashboard** to monitor sensor readings and display the status of the automated lighting system.
